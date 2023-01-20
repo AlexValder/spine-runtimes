@@ -13,8 +13,8 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_EC2_METADATA_DISABLED: true
   EM_VERSION: 3.1.10
-  GODOT_TAG: master
-  GODOT_VERSION: master
+  GODOT_TAG: 3.5-stable
+  GODOT_VERSION: 3.5-stable
 
 jobs:
 
@@ -32,7 +32,7 @@ jobs:
         shell: bash
         run: |          
           ./spine-godot/build/setup.sh $GODOT_TAG false
-          ./spine-godot/build/build.sh editor          
+          ./spine-godot/build/build.sh release_debug        
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
